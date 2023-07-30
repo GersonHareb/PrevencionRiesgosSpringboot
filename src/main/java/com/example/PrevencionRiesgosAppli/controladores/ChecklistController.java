@@ -21,41 +21,41 @@ public class ChecklistController {
     }
 
     @PostMapping("/guardarChecklist")
-    public String guardarRespuestas(@RequestParam("q1") String q1,
-                                    @RequestParam("q2") String q2,
-                                    @RequestParam("q3") String q3,
-                                    @RequestParam("q4") String q4,
-                                    @RequestParam("q5") String q5,
-                                    @RequestParam("q6") String q6
+    public String guardarRespuestas(@RequestParam(value="q1", defaultValue = "NO") String q1,
+                                    @RequestParam(value="q2", defaultValue = "NO") String q2,
+                                    @RequestParam(value="q3", defaultValue = "NO") String q3,
+                                    @RequestParam(value="q4", defaultValue = "NO") String q4,
+                                    @RequestParam(value="q5", defaultValue = "NO") String q5,
+                                    @RequestParam(value="q6", defaultValue = "NO") String q6
 
     ) {
         Checklist respuesta1 = new Checklist();
-        respuesta1.setPregunta("¿La entidad empleadora cuenta con Reglamento Interno de Higiene y Seguridad (RIHS) y/o Orden Higiene y Seguridad (RIOHS) actualizado, según corresponda?");
+        respuesta1.setPregunta("pregunta 1");
         respuesta1.setRespuesta(q1);
         checklistRepo.save(respuesta1);
 
         Checklist respuesta2 = new Checklist();
-        respuesta2.setPregunta("¿La entidad empleadora mantiene los registros actualizados de la recepción o entrega del RIHS o RIOHS a cada trabajador(a)?");
+        respuesta2.setPregunta("pregunta 2");
         respuesta2.setRespuesta(q2);
         checklistRepo.save(respuesta2);
 
         Checklist respuesta3 = new Checklist();
-        respuesta3.setPregunta("¿La entidad empleadora cumple con la obligación de informar a sus trabajadores sobre riesgos laborales que entrañan sus labores, las medidas de prevención y los métodos de trabajo correctos, de una manera oportuna y conveniente, manteniendo un registro de dicha actividad?");
+        respuesta3.setPregunta("pregunta 3");
         respuesta3.setRespuesta(q3);
         checklistRepo.save(respuesta3);
 
         Checklist respuesta4 = new Checklist();
-        respuesta4.setPregunta("¿En la entidad empleadora se ha constituido y se encuentra en funcionamiento el Comité Paritario de Higiene y Seguridad? (entidad empleadora con más de 25 trabajadores permanentes). Ley N° 16.744 Art. Nº 66; Ley Nº 19.345, Art. Nº 6, D.S. Nº 54.");
+        respuesta4.setPregunta("pregunta 4");
         respuesta4.setRespuesta(q4);
         checklistRepo.save(respuesta4);
 
         Checklist respuesta5 = new Checklist();
-        respuesta5.setPregunta("¿El Comité Paritario de Higiene y Seguridad cuenta con un programa de trabajo propio y se reúne como mínimo una vez al mes?");
+        respuesta5.setPregunta("pregunta 5");
         respuesta5.setRespuesta(q5);
         checklistRepo.save(respuesta5);
 
         Checklist respuesta6 = new Checklist();
-        respuesta6.setPregunta("¿El Comité Paritario de Higiene y Seguridad realiza investigación de las causas de los accidentes del trabajo y las enfermedades profesionales?");
+        respuesta6.setPregunta("pregunta 6");
         respuesta6.setRespuesta(q6);
         checklistRepo.save(respuesta6);
 
