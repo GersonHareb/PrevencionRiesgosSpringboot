@@ -25,10 +25,46 @@
       <div class="d-flex flex-column w-100">
           <div th:replace="~{plantillas/navegador :: navegador}"></div>
           <div class="">
-              <div class="container-fluid">
-      	
-      </div>
-      </div>
+              <div class="container-fluid table-responsive m-auto">
+                  <div class=" m-auto tabla-datos">
+                      <h3 class="text-center py-4 bg-primary m-0 text-light">Cuerpo legal</h3>
+                      <form action="/guardarChecklist" method="POST">
+
+                      <table class="mt-n2">
+                          <tr class="bg-dark text-light py-3">
+                              <th>Check</th>
+                              <th>Pregunta</th>
+                          </tr>
+                          <tr>
+                              <td><input type="checkbox" id="q1" name="q1" value="SI"></td>
+                              <td><label for="q1">¿La entidad empleadora cuenta con Reglamento Interno de Higiene y Seguridad (RIHS) y/o Orden Higiene y Seguridad (RIOHS) actualizado, según corresponda? Cód. Del trabajo Art. Nº 153-154; Ley Nº 16.744, Art. Nº 67; D.S. Nº 40, Art. Nº 14-20.</label></td>
+                          </tr>
+                          <tr>
+                              <td><input type="checkbox" id="q2" name="q2" value="SI"></td>
+                              <td><label for="q2">¿La entidad empleadora mantiene los registros actualizados de la recepción o entrega del RIHS o RIOHS a cada trabajador(a)?</label></td>
+                          </tr>
+                          <tr>
+                              <td><input type="checkbox" id="q3" name="q3" value="SI"></td>
+                              <td><label for="q3">¿La entidad empleadora cumple con la obligación de informar a sus trabajadores sobre riesgos laborales que entrañan sus labores, las medidas de prevención y los métodos de trabajo correctos, de una manera oportuna y conveniente, manteniendo un registro de dicha actividad? D.S. Nº 40 Art. Nº 21-24.</label></td>
+                          </tr>
+                          <tr>
+                              <td><input type="checkbox" id="q4" name="q4" value="SI"></td>
+                              <td><label for="q4">¿En la entidad empleadora se ha constituido y se encuentra en funcionamiento el Comité Paritario de Higiene y Seguridad? (entidad empleadora con más de 25 trabajadores permanentes). Ley N° 16.744 Art. Nº 66; Ley Nº 19.345, Art. Nº 6, D.S. Nº 54.</label></td>
+                          </tr>
+                          <tr>
+                              <td><input type="checkbox" id="q5" name="q5" value="SI"></td>
+                              <td><label for="q5">¿El Comité Paritario de Higiene y Seguridad cuenta con un programa de trabajo propio y se reúne como mínimo una vez al mes?</label></td>
+                          </tr>
+                          <tr>
+                              <td><input type="checkbox" id="q6" name="q6" value="SI"></td>
+                              <td><label for="q6">¿El Comité Paritario de Higiene y Seguridad realiza investigación de las causas de los accidentes del trabajo y las enfermedades profesionales?</label></td>
+                          </tr>
+                      </table>
+                          <button class="btn btn-primary" type="submit">Guardar Respuestas</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
       </div>
     </main>
 

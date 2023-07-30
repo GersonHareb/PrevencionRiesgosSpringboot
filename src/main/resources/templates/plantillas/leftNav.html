@@ -51,6 +51,11 @@
             <i class="fas fa-list me-3"></i> Listar Visitas
           </a>
         </li>
+        <li class="nav-item w-100" id="checklist-link" sec:authorize="hasRole('Profesional')">
+          <a class="nav-link w-100 px-5" href="/checklist">
+            <i class="fas fa-check-square me-3"></i> Checklist
+          </a>
+        </li>
       </ul>
     </div>
   </div>
