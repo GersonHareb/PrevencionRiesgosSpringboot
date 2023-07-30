@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Capacitaciones | Crear Usuario</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+     <script
+      src="https://kit.fontawesome.com/33aec193ff.js"
+      crossorigin="anonymous"
+    ></script>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        </head>
+  <body class="p-0">
+  <main class="contenedor-principal">
+      <div class="p-0">
+          <div th:replace="~{plantillas/leftNav :: leftNav}"></div>
+      </div>
+      <div class="d-flex flex-column w-100">
+          <div th:replace="~{plantillas/navegador :: navegador}"></div>
+          <div class="">
+              <div class="container-fluid">
+          <div class="formulario">
+
+            <h3 class="text-center my-4">Crear Usuario</h3>
+           <form class="mb-5" method="POST" action="/crearUsuario">
+			<div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" name="nombre" id="nombre" required>
+            </div>
+           <div class="form-group">
+               <label for="email">Correo Electronico:</label>
+               <input type="text" class="form-control" name="email" id="email" required>
+           </div>
+
+           <div class="form-group">
+               <label for="password">Contraseña:</label>
+               <input type="text" class="form-control" name="password" id="password" required>
+           </div>
+
+            <div class="form-group">
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" class="form-control" name="fechaNacimiento" id="fechaNacimiento" required>
+            </div>
+
+            <div class="form-group ">
+                <label for="rut">RUT:</label>
+                <input type="text" class="form-control" name="rut" maxlength="18" id="rut" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tipo">Tipo:</label>
+                <select class="form-control" name="tipo" onchange="mostrarCampos()" id="tipo" required>
+                	<option value="" selected disabled>Elige una opcion</option>
+                    <option th:each="role : ${allRoles}" th:value="${role}" th:text="${role}">Roles</option>
+                </select>
+            </div>
+
+
+
+			<div class="form-group cliente-fields hidden">
+			<div class="form-group ">
+                <label for="telefono">Telefono:</label>
+                <input type="text" class="form-control" name="telefono" id="telefono" >
+            </div>
+            <div class="form-group">
+                <label for="afp">AFP:</label>
+                <select class="form-control" name="afp" id="afp" >
+                	<option value="" selected disabled>Elige una opcion</option>
+                    <option value="Capital">Capital</option>
+                    <option value="Habitat">Habitat</option>
+                    <option value="Cuprum">Cuprum</option>
+                    <option value="Provida">Provida</option>
+                    <option value="Planvital">Planvital</option>
+                    <option value="Futuro">Futuro</option>
+                    <option value="Modelo">Modelo</option>
+                </select>
+            </div>
+             <div class="form-group">
+                <label for="sistemaSalud">Sistema de salud:</label>
+                <select class="form-control" name="sistemaSalud" id="sistemaSalud" >
+                	<option value="" selected disabled>Elige una opcion</option>
+                    <option value="Fonasa">Fonasa</option>
+                    <option value="Isapre">Isapre</option>
+                </select>
+            </div>
+            <div class="form-group ">
+                <label for="direccion">Direccion:</label>
+                <input type="text" class="form-control" name="direccion" id="direccion" >
+            </div>
+            <div class="form-group ">
+                <label for="comuna">Comuna:</label>
+                <input type="text" class="form-control" name="comuna" id="comuna" >
+            </div>
+            <div class="form-group ">
+                <label for="edad">Edad:</label>
+                <input type="text" class="form-control" name="edad" id="edad" >
+            </div>
+			</div>
+
+			<div class="form-group administrativo-fields hidden">
+            <div class="form-group ">
+                <label for="area_exp">Area:</label>
+                <input type="text" class="form-control" name="area_exp" id="area_exp" >
+            </div>
+            <div class="form-group ">
+                <label for="experienciaPrevia">Experiencia previa:</label>
+                <input type="text" class="form-control" name="experienciaPrevia" id="experienciaPrevia" >
+            </div>
+			</div>
+
+			<div class="form-group profesional-fields hidden">
+            <div class="form-group ">
+                <label for="titulo">Titulo:</label>
+                <input type="text" class="form-control" name="titulo" id="titulo" >
+            </div>
+            <div class="form-group ">
+                <label for="fechaIngreso">Fecha de ingreso:</label>
+                <input type="date" class="form-control" name="fechaIngreso" id="fechaIngreso" >
+            </div>
+			</div>
+              <button type="submit" class="btn btn-primary mt-5">Ingresar</button>
+            </form>
+          </div>
+        </div>
+        </div>
+        </div>
+    </main>
+
+  <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+          crossorigin="anonymous"
+  ></script>
+  <script src="/js/script.js"></script>
+  </body>
+</html>

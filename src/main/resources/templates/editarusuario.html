@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Capacitaciones | Editar Usuario</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+     <script
+      src="https://kit.fontawesome.com/33aec193ff.js"
+      crossorigin="anonymous"
+    ></script>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        </head>
+  <body class="p-0">
+  <main class="contenedor-principal">
+      <div class="p-0">
+          <div th:replace="~{plantillas/leftNav :: leftNav}"></div>
+      </div>
+      <div class="d-flex flex-column w-100">
+          <div th:replace="~{plantillas/navegador :: navegador}"></div>
+          <div class="">
+              <div class="container-fluid">
+          <div class="formulario">
+
+            <h3 class="text-center my-4">Crear Usuario</h3>
+              <form class="mb-5" method="POST" action="/actualizarUsuario">
+                  <input type="hidden" name="id" th:value="${usuario.id}" />
+			<div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" name="nombre" id="nombre" th:value="${usuario.nombre}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" class="form-control" name="fechaNacimiento" id="fechaNacimiento" th:value="${usuario.fechaNacimiento}" required>
+            </div>
+
+            <div class="form-group ">
+                <label for="rut">RUT:</label>
+                <input type="text" class="form-control" name="rut" maxlength="18" id="rut"  th:value="${usuario.rut}"       required>
+            </div>
+
+            <div class="form-group">
+                <label for="tipo">Tipo:</label>
+                <select class="form-control" name="tipo" onchange="mostrarCampos()" id="tipo" th:value="${usuario.tipo}" disabled>
+                	<option value="" selected disabled>Elige una opcion</option>
+                    <option value="Cliente" th:selected="${usuario.getClass().simpleName == 'Cliente'}">Cliente</option>
+                    <option value="Administrativo" th:selected="${usuario.getClass().simpleName == 'Administrativo'}">Administrativo</option>
+                    <option value="Profesional" th:selected="${usuario.getClass().simpleName == 'Profesional'}">Profesional</option>
+                </select>
+            </div>
+
+
+
+			<div class="form-group cliente-fields " th:if="${usuario != null && usuario.getClass().getName() == 'com.example.PrevencionRiesgosAppli.modelo.Cliente'}">
+			<div class="form-group ">
+                <label for="telefono">Telefono:</label>
+                <input type="text" class="form-control" name="telefono" id="telefono" th:value="${usuario.telefono}">
+            </div>
+            <div class="form-group">
+                <label for="afp">AFP:</label>
+                <select class="form-control" name="afp" id="afp" >
+                	<option value="" selected disabled>Elige una opcion</option>
+                    <option value="Capital" th:selected="${usuario.afp == 'Capital'}">Capital</option>
+                    <option value="Habitat" th:selected="${usuario.afp == 'Habitat'}">Habitat</option>
+                    <option value="Cuprum" th:selected="${usuario.afp == 'Cuprum'}">Cuprum</option>
+                    <option value="Provida" th:selected="${usuario.afp == 'Provida'}">Provida</option>
+                    <option value="Planvital" th:selected="${usuario.afp == 'Planvital'}">Planvital</option>
+                    <option value="Futuro" th:selected="${usuario.afp == 'Futuro'}">Futuro</option>
+                    <option value="Modelo" th:selected="${usuario.afp == 'Modelo'}">Modelo</option>
+                </select>
+            </div>
+             <div class="form-group">
+                <label for="sistemaSalud">Sistema de salud:</label>
+                <select class="form-control" name="sistemaSalud" id="sistemaSalud" th:value="${usuario.sistemaSalud}">
+                	<option value="" selected disabled>Elige una opcion</option>
+                    <option value="Fonasa" th:selected="${usuario.sistemaSalud == 'Fonasa'}">Fonasa</option>
+                    <option value="Isapre" th:selected="${usuario.sistemaSalud == 'Isapre'}">Isapre</option>
+                </select>
+            </div>
+            <div class="form-group ">
+                <label for="direccion">Direccion:</label>
+                <input type="text" class="form-control" name="direccion" id="direccion" th:value="${usuario.direccion}">
+            </div>
+            <div class="form-group ">
+                <label for="comuna">Comuna:</label>
+                <input type="text" class="form-control" name="comuna" id="comuna" th:value="${usuario.comuna}">
+            </div>
+            <div class="form-group ">
+                <label for="edad">Edad:</label>
+                <input type="text" class="form-control" name="edad" id="edad" th:value="${usuario.edad}">
+            </div>
+			</div>
+
+			<div class="form-group administrativo-fields " th:if="${usuario != null && usuario.getClass().getName() == 'com.example.PrevencionRiesgosAppli.modelo.Administrativo'}">
+            <div class="form-group ">
+                <label for="area_exp">Area:</label>
+                <input type="text" class="form-control" name="area_exp" id="area_exp" th:value="${usuario.area_exp}">
+            </div>
+            <div class="form-group ">
+                <label for="experienciaPrevia">Experiencia previa:</label>
+                <input type="text" class="form-control" name="experienciaPrevia" id="experienciaPrevia" th:value="${usuario.experienciaPrevia}">
+            </div>
+			</div>
+
+			<div class="form-group profesional-fields " th:if="${usuario != null && usuario.getClass().getName() == 'com.example.PrevencionRiesgosAppli.modelo.Profesional'}">
+            <div class="form-group ">
+                <label for="titulo">Titulo:</label>
+                <input type="text" class="form-control" name="titulo" id="titulo" th:value="${usuario.titulo}">
+            </div>
+            <div class="form-group ">
+                <label for="fechaIngreso">Fecha de ingreso:</label>
+                <input type="date" class="form-control" name="fechaIngreso" id="fechaIngreso" th:value="${usuario.fechaIngreso}">
+            </div>
+			</div>
+              <button type="submit" class="btn btn-primary mt-5">Ingresar</button>
+            </form>
+          </div>
+        </div>
+        </div>
+        </div>
+    </main>
+
+  <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+          crossorigin="anonymous"
+  ></script>
+  <script src="/js/script.js"></script>
+  </body>
+</html>

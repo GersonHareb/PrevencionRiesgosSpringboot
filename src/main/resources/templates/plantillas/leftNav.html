@@ -1,0 +1,65 @@
+<div th:fragment="leftNav">
+<nav class="navbar navbar-expand-lg" id="sidebar">
+  <div class="w-100">
+    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav nav-item-collection mb-md-5 w-100">
+        <li class="nav-item  w-100" id="inicio-link">
+          <a class="nav-link w-100 px-5" href="/inicio">
+            <i class="fas fa-home me-3"></i> Inicio
+          </a>
+        </li>
+        <li class="nav-item w-100" id="listarCapacitacion-link" sec:authorize="hasRole('Cliente')">
+          <a class="nav-link w-100 px-5" href="/listarCapacitaciones">
+            <i class="fas fa-list me-3"></i> Listado capacitacion
+          </a>
+        </li>
+        <li class="nav-item w-100" id="crearCapacitacion-link" sec:authorize="hasRole('Cliente')">
+          <a class="nav-link w-100 px-5" href="/crearCapacitacion">
+            <i class="fas fa-plus me-3"></i> Crear capacitacion
+          </a>
+        </li>
+        <li class="nav-item w-100" id="contactos-link" sec:authorize="hasRole('Cliente')">
+          <a class="nav-link w-100 px-5" href="/contacto">
+            <i class="fas fa-envelope me-3"></i> Contacto
+          </a>
+        </li>
+        <li class="nav-item w-100" id="crearUsuario-link" sec:authorize="hasRole('Administrativo')">
+          <a class="nav-link w-100 px-5" href="/crearUsuario">
+            <i class="fas fa-user-plus me-3"></i> Crear usuario
+          </a>
+        </li>
+        <li class="nav-item w-100" id="listarUsuario-link" sec:authorize="hasRole('Administrativo')">
+          <a class="nav-link w-100 px-5" href="/listarUsuario">
+            <i class="fas fa-users me-3"></i> Listar usuario
+          </a>
+        </li>
+        <li class="nav-item w-100" id="listarPagos-link" sec:authorize="hasRole('Administrativo')">
+          <a class="nav-link w-100 px-5" href="/listarPagos">
+            <i class="fas fa-money-bill-wave me-3"></i> Listar pagos
+          </a>
+        </li>
+        <li class="nav-item w-100" id="crearPago-link" sec:authorize="hasRole('Administrativo')">
+          <a class="nav-link w-100 px-5" href="/crearPago">
+            <i class="fas fa-file-invoice-dollar me-3"></i> Crear pago
+          </a>
+        </li>
+        <li class="nav-item w-100" id="listarVisitas-link" sec:authorize="hasRole('Profesional')">
+          <a class="nav-link w-100 px-5" href="/listarVisitas">
+            <i class="fas fa-list me-3"></i> Listar Visitas
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+
+
+
+
+
+
+

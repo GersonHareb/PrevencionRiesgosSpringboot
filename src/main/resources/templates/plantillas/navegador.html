@@ -1,0 +1,28 @@
+<div th:fragment="navegador">
+	<div class="datos-usuario">
+		<div class="d-flex flex-row align-items-center">
+			<img
+      		src="img/logo.png"
+      		alt="Logo de la empresa"
+      		class="userPic mx-auto my-0"/>
+          	<div class="d-flex flex-column">
+          		<a
+            	class="pb-0 ps-2"
+            	aria-current="page"
+            	href="/inicio">
+            		Hola de nuevo, <strong th:text="${nombre}"></strong>
+          		</a>
+          		<a class="pt-0 ps-2" href="#"><small>Editar perfil</small></a>
+          	</div>
+
+		</div>
+		<div class="ms-sm-auto boton-cerrar-sesion">
+			<button
+        	class="btn btn-primary btn-sm shadow ms-3 "
+        	aria-current="page"
+			onclick="return confirmarYCerrarSesion()">
+        		Cerrar sesion
+          </button>
+		</div>
+	</div>
+</div>
