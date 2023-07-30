@@ -26,7 +26,7 @@ public class LoginController {
             model.addAttribute("errorMessage", "Credenciales incorrectas. Inténtalo de nuevo.");
         }
 
-        // Capturar el nombre de usuario y agregarlo al modelo de vista
+        // Capturar el nombre de usuario y agregarlo al modelo de vista*****
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String nombreUsuario = auth.getName();
         System.out.println(nombreUsuario);
@@ -40,13 +40,12 @@ public class LoginController {
         Authentication auth = event.getAuthentication();
         String nombreUsuario = auth.getName();
 
-        // Obtener el rol del usuario si está disponible en la autenticación
+        // Obtener el rol del usuario si está disponible en la autenticación, que raro
         String rolUsuario = "";
         if (auth.getAuthorities() != null && !auth.getAuthorities().isEmpty()) {
             rolUsuario = auth.getAuthorities().iterator().next().getAuthority();
         }
 
-        // Registrar la visita utilizando el servicio VisitaService
         visitaService.registrarVisita(nombreUsuario, rolUsuario);
     }
 
